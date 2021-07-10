@@ -20,7 +20,7 @@ video {
     height: 100%;
     object-fit: cover;
     transform: scaleX(-1);
-    /* border-width: 30px; */
+    border-width: 30px;
     border-color:#343433;}
 
 
@@ -70,19 +70,15 @@ body{
     display: flex;
 }
 
-.EndMeet{
-    color:red;
-}
-/*  
-.ChatButton{
-    color:white;
-} */
+
+
 
 .RiseButton{
     color:#D2D2D2;
 }
 .Controls{
     display: flex;
+    flex-direction:row;
     background-color: #1C1E20;
     color: #D2D2D2;
     padding: 0 20%  0 35%;
@@ -91,7 +87,10 @@ body{
 
 .ControlsBlock{
     display: flex;
+    padding:5px;
 }
+
+
 
 .ControlsButton{
     display: flex;
@@ -100,6 +99,13 @@ body{
     align-items: center;
     padding: 8px 10px;
     min-width: 80px;
+    cursor: pointer;
+    color: #FFFFFF;
+    border-radius: 10px;
+    position: relative;
+    left: 250px;
+    /* background-color: #424242; */
+    opacity: 0.8;
     cursor: pointer;
 }
 
@@ -112,7 +118,7 @@ body{
     border-radius: 5px;
 }
 
-.leaveMeeting{
+.endMeet{
     color: red;
 }
 
@@ -134,6 +140,16 @@ body{
 .messageBox{
     padding: 22px 12px;
     display: flex;
+    align-items: center;
+    background: #f1f3f4;
+    border-radius: 25px;
+    min-height: 36px;
+    margin: 15px;
+    box-align: end;
+    align-items: flex-end;
+    box-orient: horizontal;
+    flex-direction: row;
+   
 }
 
 .messageBox input{
@@ -141,6 +157,19 @@ body{
     background-color: transparent;
     border: none;
     color: black;
+}
+.date{
+     display: flex;
+    color:#FFFFFF;
+    position: relative;
+    left: 0px;
+    opacity: 0.6;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px;
+    min-width: 90px;
+    cursor: pointer;
 }
 
 .messages{

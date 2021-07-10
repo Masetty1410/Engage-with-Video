@@ -7,6 +7,7 @@ const peer = new Peer(undefined, {
 });
 const people = {};
 
+
 const myvideo = document.createElement("video");//for video representation of each user
 myvideo.classList.add("user-video");
 myvideo.muted = true;//this is because our own voice shouldnt be heard by ourselves
@@ -63,7 +64,8 @@ $('html').keydown((e) => {
 })
 //here the message gets appended to the chat box 
 socket.on('createMessage', (message,userName) => {
-    $('#messages').append(`<li class"message><b><i class="fas fa-user-circle"></i><span> ${userName}</span>:</b><br/>${message}</li>`)
+    $('#messages').append(`<li class"message><b><i class="fas fa-user-circle"></i><span style="color:#383838"> ${userName}</span>:&emsp;<span style="color:black;opacity:0.8,font-size:5px;">${new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+    }</span></b><br/>${message}</li>`)
     scrollToBottom();
 });
  
@@ -98,7 +100,7 @@ else{
 }
 }
 
-//for user disconnection
+//                                          user disconnection
 socket.on("user-disconnected", (userID,userName) => {
     if (people[userID]) people[userID].close();   
 let users = document.getElementsByTagName("video").length;
@@ -113,7 +115,7 @@ else{
 }
 });
 
-//for mute and unmute buttons and their functionalities
+//                                  mute and unmute buttons and their functionalities
 const audioToggle = () => {
     const enabled = myVideoStream.getAudioTracks()[0].enabled;
     if (enabled) {
@@ -149,7 +151,7 @@ const scrollToBottom = () => {
     d.scrollTop(d.prop("scrollHeight"));
 }
 
-//for video-on and video-off buttons and their functionalities
+//                                      video-on and video-off buttons and their functionalities
 
 const videoToggle = () => {
     const enabled = myVideoStream.getVideoTracks()[0].enabled;
@@ -174,7 +176,7 @@ const videoOn = () => {
     document.querySelector('.VideoButton').innerHTML = html;
 }
 
-// to change the innerHTML icon into video-off button
+//to change the innerHTML icon into video-off button
 
 const videoOff = () => {
     const html = `
@@ -185,7 +187,7 @@ const videoOff = () => {
     document.querySelector('.VideoButton').innerHTML = html;
 }
 
-//for pop-up chat window
+//                                                  for pop-up chat window
 
 const chatToggle =(showDiv) =>{
     var popup=document.getElementById("rightpage");
@@ -205,15 +207,11 @@ const chatToggle =(showDiv) =>{
      }
  }
 
- function leaves(){
-  if(confirm("Are you sure?")){
-    var myWindow = window.open("endpage.html", "_self");
-}
- }
+
+
+//                                                   invite people
 
  const addPeople = () => {
-//     var elementinvite = document.getElementById("inviteId")
-//     elementinvite .addEventListener("click", (e) => {
             navigator.clipboard.writeText(window.location.href).then(function() {
               alert("Invite link copied to the clipboard!Share it with your folks!!")
             }, function(err) {
@@ -221,11 +219,15 @@ const chatToggle =(showDiv) =>{
             });
  };
 
+
+//                                             hand raise feature
 const handraise = (handrise) => {
   var Handrise = document.getElementById('handrise');
-  let colorborder = document.getElementsByTagName("video");
+//   let colorborder = document.getElementsByTagName("video");
+
   if(Handrise.val=="yes"){
     // colorborder.style.cssText="border-color:red" ;
+    $('video').css('border-color', 'white');
     Handrise.style.color="#D2D2D2";
       Handrise.val="no";
       socket.emit('lower-hand'); 
@@ -237,12 +239,46 @@ const handraise = (handrise) => {
   }
 };
 
+$('.box').on('click', function(e){
+    e.preventDefault();
+    $(this).css('border-color', 'lime');
+  });
+//whenevr the hand is raised ,this message gets appended in chat box
 socket.on('handrise', userName =>{
   $("ul").append(`<h6><li class="message" style="color:yellow"><br/>Hand Raised by  ${userName}</li></h6>`);
 })
+//whenevr the hand is lowered ,this message gets appended in chat box
 
 socket.on('lowerhand', userName =>{
     $("ul").append(`<h6><li class="message" style="color:green"><br/>Hand Lowered by  ${userName}</li></h6>`);
   })
 
+//                                  for date and time visibility feature
 
+function timer(){
+    var currentTime = new Date()
+   var hours = currentTime.getHours()
+   var minutes = currentTime.getMinutes()
+   var sec = currentTime.getSeconds()
+   if (minutes < 10){
+       minutes = "0" + minutes
+   }
+   if (sec < 10){
+       sec = "0" + sec
+   }
+   var t_str = hours + ":" + minutes + ":" + sec + " ";
+   if(hours > 11){
+       t_str += "PM";
+   } else {
+      t_str += "AM";
+   }
+    document.getElementById('datetime').innerHTML = t_str;
+    setTimeout(timer,1000);
+}
+
+//                                                  exit feature
+function leaves(){
+    if(confirm("Are you sure?")){
+      var myWindow = window.open("endpage.html", "_self");
+  }
+   }
