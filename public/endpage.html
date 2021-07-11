@@ -5,23 +5,31 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Engage with video</title>
    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw2QCh4H069KFz7uPYdAamllF7bCLqUa8Fig&usqp=CAU"  type = "image/x-icon">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <style>
     #align{
         height:100px;
-        /* line-height:500px; */
+        line-height:200px;
         text-align:center;
         display: block;
         font-size: 300%;
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         /* color: rgb(226, 17, 17); */
     }
+      #img{
+        size:10%;
+      }  
+    
 </style>
 <body style="background-color: white;">
-    <div id="align">
+    <div id="align" class="container"> 
     <div style="color:rgb(226, 17, 17);">
-        <p>Call Ended!!</p>
-        <p style="color:green"> To join new call <a href="https://engage-with-video.herokuapp.com/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw2QCh4H069KFz7uPYdAamllF7bCLqUa8Fig&usqp=CAU"></a></p>
+        <p style="padding:150px 50px 0px 50px;">Call Ended!!</p>
+        <img  id="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw2QCh4H069KFz7uPYdAamllF7bCLqUa8Fig&usqp=CAU">
+        <a style="color:green"
+        href="https://engage-with-video.herokuapp.com/">Join a new call here!!!</a>
     </div>
 </div>
 </body>

@@ -5,14 +5,7 @@
     flex-basis:auto;
     display:grid;
 }
-/* 
-#video-grid{
-    height: calc(100% - 130px);
-    width: 200%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-} */
+
 video {
     flex:1;
     padding: 10px;
@@ -21,7 +14,9 @@ video {
     object-fit: cover;
     transform: scaleX(-1);
     border-width: 30px;
-    border-color:#343433;}
+    border-color:#343433;
+    
+}
 
 
 body{
@@ -39,7 +34,6 @@ body{
     align-items: stretch;
 
 }
-
 
 .pageLeft{
     flex: 0.8;
@@ -75,6 +69,7 @@ body{
 
 .RiseButton{
     color:#D2D2D2;
+    cursor: pointer;
 }
 .Controls{
     display: flex;
@@ -91,19 +86,18 @@ body{
 }
 
 
-
 .ControlsButton{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 8px 10px;
-    min-width: 80px;
+    padding: 8px 5px;
+    min-width: 60px;
     cursor: pointer;
     color: #FFFFFF;
     border-radius: 10px;
     position: relative;
-    left: 250px;
+    /* left: 150px; */
     /* background-color: #424242; */
     opacity: 0.8;
     cursor: pointer;
@@ -138,25 +132,50 @@ body{
 }
 
 .messageBox{
-    padding: 22px 12px;
+    padding: 12px 0px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     background: #f1f3f4;
-    border-radius: 25px;
-    min-height: 36px;
-    margin: 15px;
+    color:grey;
+    border-radius: 15px;
+    min-height: 56px;
+    /* margin: 15px; */
     box-align: end;
     align-items: flex-end;
     box-orient: horizontal;
     flex-direction: row;
+    /* border:20px black; */
    
 }
-
-.messageBox input{
+#sicons{
+    flex:0.1;
     flex-grow: 1;
     background-color: transparent;
     border: none;
     color: black;
+    align-items: center;
+    background: #f1f3f4;
+    /* color:grey; */
+    border-radius: 25px;
+    min-height: 36px;
+    /* margin: 10px; */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.messageBox input{
+    flex:0.9;
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: black;
+    align-items: center;
+    background: #f1f3f4;
+    /* color:grey; */
+    border-radius: 25px;
+    min-height: 36px;
+    /* margin: 10px; */
 }
 .date{
      display: flex;

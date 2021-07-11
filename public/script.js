@@ -28,11 +28,6 @@ navigator.mediaDevices.getUserMedia({
             echoCancellation: true,
             noiseSuppression: true
          },
-        // mandatory: {
-        //     chromeMediaSource: 'screen',
-        //     maxWidth: 1280,
-        //     maxHeight: 720
-        // }
     })
     .then((stream) => {
         myVideoStream=stream;
@@ -43,12 +38,14 @@ navigator.mediaDevices.getUserMedia({
         });
         //call function sends the request to other peer throught peer.on function whenever the peer accepts the call ,the call ill be established.
         peer.on("call", (call) => {
+            if(confirm("Do want to answer the call ?")){
             call.answer(stream);
             const video = document.createElement("video");
             //and here ther video element(source) or stream gets appeneded in our video stream i.e video-grid
             call.on("stream", (userVideoStream) => {
                 addVideoStream(video, userVideoStream);
             });
+        }
         });   
     })
     .catch((err) => alert(err.message));//if somewhere goes wrong then the alert box with error message get poped up on the screen
@@ -68,6 +65,8 @@ socket.on('createMessage', (message,userName) => {
     }</span></b><br/>${message}</li>`)
     scrollToBottom();
 });
+
+
  
 //here the new user get added into the call by adding into video stream
 function newUserConnection(userID, stream,userName) {
@@ -79,30 +78,17 @@ call.on("stream", (userVideoStream) => {
 //whenever the call gets ended the user will get removed from the video grid and call
 call.on("close", () => {
     video.remove();
+    delete people[userID];
 });    
 people[userID] = call;
 }
 
-//the video element(stream) of each user gets appended into the video grid and css styling is done
-function addVideoStream(video, stream) {
-    video.srcObject = stream;
-    video.addEventListener("loadedmetadata", () => {
-        video.play();
-    });
-    videogrid.append(video);
-let users = document.getElementsByTagName("video").length;//for number of users in the video-grid
-if (users > 1) {
-    users=users+1;
-    videogrid.style.flexBasis = (1 / users)*100 + "%";
-}
-else{
-    videogrid.style.flexBasis = "55%";
-}
-}
-
-//                                          user disconnection
+//user disconnection 
 socket.on("user-disconnected", (userID,userName) => {
-    if (people[userID]) people[userID].close();   
+    if (people[userID]) {
+    people[userID].close();
+   } 
+   
 let users = document.getElementsByTagName("video").length;
 
 //the below code is for flex-basis ,so that every video element will get proper amount of space to occupy
@@ -114,6 +100,24 @@ else{
     videogrid.style.flexBasis = "55%";
 }
 });
+  
+//the video element(stream) of each user gets appended into the video grid and css styling is done
+function addVideoStream(video, stream) {
+    video.srcObject = stream;
+    video.addEventListener("loadedmetadata", () => {
+        video.play();
+    });
+    videogrid.append(video);
+let users = document.getElementsByTagName("video").length;//for number of users in the video-grid
+if (users >1) {
+    users=users+1;
+    videogrid.style.flexBasis = (((1 / users)*100)+10) + "%";
+}
+else{
+    videogrid.style.flexBasis = "55%";
+}
+}
+
 
 //                                  mute and unmute buttons and their functionalities
 const audioToggle = () => {
@@ -144,11 +148,6 @@ const UnmuteButton = () => {
     `;
 
     document.querySelector('.MuteButton').innerHTML = html;
-}
-
-const scrollToBottom = () => {
-    let d = $('.mainChatWindow');
-    d.scrollTop(d.prop("scrollHeight"));
 }
 
 //                                      video-on and video-off buttons and their functionalities
@@ -223,10 +222,10 @@ const chatToggle =(showDiv) =>{
 //                                             hand raise feature
 const handraise = (handrise) => {
   var Handrise = document.getElementById('handrise');
-//   let colorborder = document.getElementsByTagName("video");
+  let colorborder = document.getElementsByTagName("video")[0];
 
   if(Handrise.val=="yes"){
-    // colorborder.style.cssText="border-color:red" ;
+    colorborder.style.cssText="border-color:red" ;
     $('video').css('border-color', 'white');
     Handrise.style.color="#D2D2D2";
       Handrise.val="no";
@@ -239,13 +238,10 @@ const handraise = (handrise) => {
   }
 };
 
-$('.box').on('click', function(e){
-    e.preventDefault();
-    $(this).css('border-color', 'lime');
-  });
+
 //whenevr the hand is raised ,this message gets appended in chat box
 socket.on('handrise', userName =>{
-  $("ul").append(`<h6><li class="message" style="color:yellow"><br/>Hand Raised by  ${userName}</li></h6>`);
+  $("ul").append(`<h6><li class="message" style="color:red"><br/>Hand Raised by  ${userName}</li></h6>`);
 })
 //whenevr the hand is lowered ,this message gets appended in chat box
 
@@ -277,8 +273,57 @@ function timer(){
 }
 
 //                                                  exit feature
+
 function leaves(){
-    if(confirm("Are you sure?")){
-      var myWindow = window.open("endpage.html", "_self");
-  }
-   }
+    // if(confirm("Are you sure?")){
+     var myWindow = window.open("endpage.html", "_self");
+   
+
+  call.on("close", () => {
+    // video.parentNode.removeChild(video)
+    video.remove();
+    delete people[userID];
+
+}); 
+}
+
+
+
+
+// function loadAllEmoji() {
+//     const loadAllEmoji =() =>{
+//         var popup=document.getElementById("rightpage");
+//         var left = document.getElementById("leftpage");
+//         if(showDiv.val == "yes"){
+//             showDiv.style.cssText="color:white";
+//             popup.style.cssText = "display:none;flex:0";
+//             left.style.cssText="flex:1";
+//             showDiv.val = "no";
+//          }
+//          else{
+//             showDiv.style.cssText="color:khaki";
+//             popup.style.cssText="display:flex;flex:0.2";
+//             left.style.cssText="flex:0.8";
+//             showDiv.val = "yes"; 
+            
+//          }
+//      }
+//     var emoji = '';
+//     for (var i = 128512; i <= 128566; i++) {
+//         emoji += `<a href="#" style="font-size: 22px;" onclick="getEmoji(this)">&#${i};</a>`;
+//     }
+
+//     document.getElementById('sicons').innerHTML = emoji;
+// }
+
+// function showEmojiPanel() {
+//     document.getElementById('emoji').removeAttribute('style');
+// }
+
+// function hideEmojiPanel() {
+//     document.getElementById('emoji').setAttribute('style', 'display:none;');
+// }
+
+// function getEmoji(control) {
+//     document.getElementById('txtMessage').value += control.innerHTML;
+// }

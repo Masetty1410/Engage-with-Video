@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Room</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw2QCh4H069KFz7uPYdAamllF7bCLqUa8Fig&usqp=CAU"  type = "image/x-icon">
+</head>
+<style>
+#start:hover{
+background-color:green;
+}
+</style>
+<body style="background-image: url('https://www.avepoint.com/blog/wp-content/uploads/2016/12/Microsoft-Teams_Webinar-1.jpg')">
+   
+        <button type="button" id="start" onclick="window.open('https://engage-with-video.herokuapp.com/')">New Room</button>
+    <div>
+        <input type="text" id="room" placeholder="Enter you room id">
+        <button type="button"  id="getValue" onclick="getValue()">Join Room</button>
+    </div>
+</body>
+<script>
+function getValue(){
+    var valueGot = document.getElementById("room").value;
+    window.open(valueGot);
+}
+</script>
+</html>
