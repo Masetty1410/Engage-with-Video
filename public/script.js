@@ -12,7 +12,7 @@ const myvideo = document.createElement("video");//for video representation of ea
 myvideo.classList.add("user-video");
 myvideo.muted = true;//this is because our own voice shouldnt be heard by ourselves
 //for user name
-const name_user = prompt("Enter your Name");
+const name_user = document.getElementById("username").value;
 
 let myVideoStream;
 
