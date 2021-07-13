@@ -8,15 +8,18 @@ const io = require("socket.io")(server);
 const { v4: uuidV4 } = require("uuid");
 
 app.use(express.static(path.join(__dirname, "/public")));
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname+"/public/startpage.html"))
-// })
+
 app.use("/peer", peer.ExpressPeerServer(app, { proxied: true }));
 app.set("view engine", "ejs");
-app.get("/", (req, res) => {
-    res.redirect(`/${uuidV4()}`);
-});
 
+app.get("/", (req, res) => {
+    const link = uuidV4()
+    res.redirect(`/public/credentails/login.html`);
+});
+app.get("/newmeet", (req, res) => {
+    const link = uuidV4()
+    res.redirect(`/${link}`);
+});
 app.get("/:room", (req, res) => {
     res.render("room", { roomID: req.params.room });
     

@@ -7,6 +7,7 @@
     <title>Join Room</title>
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw2QCh4H069KFz7uPYdAamllF7bCLqUa8Fig&usqp=CAU"  type = "image/x-icon">
     <script defer src="../public/script.js"></script>
+    <script src="../credentails/login.js"></script>
 </head>
 <style>
 #start:hover{
@@ -62,17 +63,31 @@ background-color:red;
       
     </div>
     
-        <button type="button" id="start" onclick="window.open('https://engage-with-video.herokuapp.com/')">Create New Room</button>
+        <button type="button" id="start" onclick="meet()">Create New Room</button>
     <div>
         <input type="text" id="room" placeholder="Enter you room id">
         <button type="button"  id="getValue" onclick="getValue()">Join Room</button>
     </div>
+    <div>
+        <button type="button" onclick="logOut()">LOG OUT</button>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
 </body>
 <script>
 function getValue(){
     var valueGot = document.getElementById("room").value;
     window.open(valueGot);
 }
+</script>
+<script>
+    function meet(){
+        window.location.href="https://engage-with-video.herokuapp.com/meet"
+    }
 </script>
 
 </html>

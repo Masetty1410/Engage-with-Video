@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="login-div" class="main-div">
+        <h3>Login Page</h3>
+        <input type="email" placeholder="email..." id="email_field"/>
+        <input type="password" placeholder="password..." id="password_field"/>
+        <button onclick="logIn()">Log In</button>
+        Don't Have an Account?
+        <a href="signup.html">SignUp</a>
+    </div>
+    <div id="user-div" class="loggedin-div">
+        <h3>Welcome User</h3>
+        <p id="user_para">You are now logged in...</p>
+
+        <button onclick="sendVerificationEmail()">Send Verification Email</button>
+      
+        <button onclick="logOut()">Log Out</button>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="./login.js"></script>
+</body>
+</html>

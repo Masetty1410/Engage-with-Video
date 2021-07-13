@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Page</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw2QCh4H069KFz7uPYdAamllF7bCLqUa8Fig&usqp=CAU"  type = "image/x-icon">
+</head>
+<body style :>
+    
+      
+    <div id="signup-div" class="signup-main-div">
+       
+        
+        <input type="text" placeholder="User Name..." id="uname" required/>
+        <input type="email" placeholder="email..." id="user_email" required/>
+        <input type="password" placeholder="password..." id="user_password" required/>
+        <label>confirm password:</label>
+        <input type="password" name="confirm_password" id="confirm_password" > 
+        <button type="submit"  style="margin-bottom: 10px" onclick="check()" >submit</button>
+        <button onclick="signUp()">Sign Up</button>
+        <div>
+         <h2>If you are already member</h2>&emsp<a href="login.html">Login</a> 
+        </div>
+        
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="./login.js"></script>
+</body>
+<script>
+function check(){
+    var one =document.getElementById("user_password").value;
+    var two =document.getElementById("confirm_password").value;
+    if(one != "" && two != "")
+    msg  = one==two?"Now please click on signup button":"Passwords mismatched";
+    alert(msg);
+    
+}
+</script>
+</html>
