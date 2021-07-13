@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
     const link = uuidV4()
-    res.redirect(`/login.html`);
+    res.redirect(`/signup.html`);
 });
 app.get("/newmeet", (req, res) => {
     const link = uuidV4()
