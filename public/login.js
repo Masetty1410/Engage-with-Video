@@ -67,7 +67,7 @@
         
                 document.getElementById("user_para").innerHTML="Welcome User : " + email_id+"<br>Email verified : "+verified;
                 if(verified){
-                    window.open('../views/startpage.html')
+                    window.open('/startpage.html')
                 }
                 else{
                     alert("please verfiy emailID")}
