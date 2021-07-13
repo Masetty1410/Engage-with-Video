@@ -6,10 +6,15 @@ Youtube demo :
 
 # How to run the app
 
+Incase If you dont have node.js in your computer then install it here  https://nodejs.org/en/download/<br/>
+Once its download ,chech the version using <br/>
+1)node -v (on your terminal/cmd)<br/>
+2)npm -v
+
+
 1)npm i(for installing all dependencies). <br/>
-2)peerjs --port 443
-3)npm run Start.
-4)open localhost:5000 to view the app
+2)npm run Start.<br/>
+3)open localhost:5000 to view the app
 
 #Features in the app
 
