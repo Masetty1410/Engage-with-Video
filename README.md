@@ -71,6 +71,7 @@ Sprint-4 : Here microsoft added an extra feature of chat which we have to adapt 
 
 a)I made the chat box where 2 people can chat on videocall .<br/>
 b)And then included Rise Hand option i.e whenver the user raises his/her hand it get notified in th chat box.<br/>
+c)Lastly made few UI changes and then deployed in heroku.
 
 
 
