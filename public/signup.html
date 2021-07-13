@@ -17,9 +17,9 @@
         <input type="text" placeholder="Enter User Name..." id="uname" required/>
         <input type="email" placeholder=" Enter email..." id="user_email" required/>
         <input type="password" placeholder="Enter password..." id="user_password" required/>
-        <input type="password" name="confirm_password" id="confirm_password"  placeholder="confirm password:"> 
-        <button type="submit"  style="margin-bottom:10px" onclick="check()" >submit</button>
-        <button onclick="signUp()">Sign Up</button>
+        <input type="password" name="confirm_password" id="confirm_password"  placeholder="confirm password:" required> 
+        <!-- <button type="submit"  style="margin-bottom:10px" onclick="check()" >submit</button> -->
+        <button  type="submit" onclick="check()" >SignUp</button>
         <div> If you are already a member
         <a href="./login.html">LogIn</a>
         </div>
@@ -36,11 +36,15 @@
 function check(){
     var one =document.getElementById("user_password").value;
     var two =document.getElementById("confirm_password").value;
-    if(one != "" && two != "")
-    msg  = one==two?"Now please click on signup button":"Passwords mismatched";
-    alert(msg);
-    
-}
+    if(one != "" && two != "") 
+    { if(one == two){
+
+      signUp();
+    }
+    else{
+      alert("passwords mismatched");
+    }
+}}
 </script>
 </html>
 
