@@ -28,6 +28,7 @@ Once its download ,chech the version using <br/>
 7. Custom Usernames<br/>
 8. Video Toggle<br/>
 9. Audio Toggle<br/>
+10. Timestamp <br />
 
 
 
