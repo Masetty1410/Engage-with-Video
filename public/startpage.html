@@ -11,7 +11,7 @@
 </head>
 <style>
 #start:hover{
-background-color:green;
+background-color:#eb9e34;
 opacity: 0.8;
 }
 #userval{
@@ -53,12 +53,20 @@ background-color:red;
     margin-top: 315px;
      /* margin-left: 10px; */
 }
+#logout:hover{
+    color:red;
+   
+}
 
 
 </style>
 
-<body style="background-image: url('https://www.avepoint.com/blog/wp-content/uploads/2016/12/Microsoft-Teams_Webinar-1.jpg')">
-  <div id="name"> 
+<body style="height:100%;width:100;background-image: url('https://cdn.guidingtech.com/imager/assets/2020/05/943900/video-call_4d470f76dc99e18ad75087b1b8410ea9.jpg?1590487764');background-size: cover;background-repeat: no-repeat;">
+    <div>
+        <button style="margin-left: 1400px;font-size: 16px;border-radius: 5px;padding: 7px; "  type="button" id="logout" onclick="logOut()">LOG OUT</button>
+    </div>
+
+    <div id="name"> 
       <!-- <span id="userval">User Name</span><input type="text" id="username" placeholder="Enter your name"> -->
       
     </div>
@@ -68,9 +76,7 @@ background-color:red;
         <input type="text" id="room" placeholder="Enter you room id">
         <button type="button"  id="getValue" onclick="getValue()">Join Room</button>
     </div>
-    <div>
-        <button type="button" onclick="logOut()">LOG OUT</button>
-    </div>
+  
 
 
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
