@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
     const link = uuidV4()
-    res.redirect(`/public/credentails/login.html`);
+    res.redirect(`/login.html`);
 });
 app.get("/newmeet", (req, res) => {
     const link = uuidV4()
