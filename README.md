@@ -25,7 +25,9 @@ Once its download ,chech the version using <br/>
 4. Chat box <br/>
 5. Raise Hand in the chat box<br/>
 6. Invite People<br/>
-7. Custom Usernames
+7. Custom Usernames<br/>
+8. Video Toggle<br/>
+9. Audio Toggle<br/>
 
 
 
