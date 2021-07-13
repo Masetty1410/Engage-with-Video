@@ -2,7 +2,7 @@
 Video-Calling Web Application : Microsoft Engage
 
 Working demo of my Web-Application : https://engage-with-video.herokuapp.com/<br/>
-Youtube demo :
+Youtube demo : https://youtu.be/5mdpn8-Gb4I <br />
 
 # How to run the app
 
@@ -28,20 +28,20 @@ Once its download ,chech the version using <br/>
 7. Custom Usernames<br/>
 8. Video Toggle<br/>
 9. Audio Toggle<br/>
-10. Timestamp <br />
+10.Timestamp <br />
 
 
 
 # Technologies involoved
 
-1)ejs. <br />
-2)express.  <br />
-3)peer  <br />
-4)peerjs <br />
-5)socket.io <br />
-5)uuid  <br />
-6)webRTC <br />
-7)firebase(database and authentication)
+1) ejs. <br />
+2) Express.  <br />
+3) Peer  <br />
+4) Peerjs <br />
+5) Socket.io <br />
+5) uuid  <br />
+6) webRTC <br />
+7) Firebase(database and authentication)
 
 # Agile Methodology
 
@@ -49,7 +49,7 @@ Agile software development refers to  software development methodologies centere
 # Sprint
 A sprint is a short, time-boxed period when a scrum team works to complete a set amount of work. Sprints are at the very heart of scrum and agile methodologies, and getting sprints right will help your agile team ship better software with fewer headaches.
 
-# Agile methodology Implementation for thisn project
+# Agile methodology Implementation for this project
 
 I split-up my work intp 4 sprints each of length 1 week.<br/>
 
