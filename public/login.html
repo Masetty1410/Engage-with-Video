@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
+    <style>
+        img{
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
-<body>
-    <div id="login-div" class="main-div">
+<body style="height:100vh;background-image: url('https://image.shutterstock.com/image-photo/artistic-cloudy-sky-pastel-gradient-260nw-767776375.jpg');background-size: cover;background-repeat: no-repeat;">
+   <!-- <img src='https://image.shutterstock.com/image-vector/global-internet-network-security-digital-260nw-604575887.jpg' alt=""> -->
+    <div id="login-div" class="main-div" style="top:calc(100vh - 526px)/2">
         <h3>Login Page</h3>
         <input type="email" placeholder="email..." id="email_field"/>
         <input type="password" placeholder="password..." id="password_field"/>
         <button onclick="logIn()">Log In</button>
         Don't Have an Account?
-        <a href="signup.html">SignUp</a>
+        <a href="./signup.html">SignUp</a>
     </div>
     <div id="user-div" class="loggedin-div">
         <h3>Welcome User</h3>
